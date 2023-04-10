@@ -1,0 +1,29 @@
+<div class="categoryPage">
+  <div class="hero">
+    <div style="background-color: <%= data.fields.hero.background_color %>; color: <%= data.fields.hero.text_color %>">
+      <h1><%= data.fields.hero.headline %></h1>
+      <p><%= data.fields.hero.sub_headline %></p>
+    </div>
+  </div>
+
+  <form class="search" action="/search" method="get">
+    <input 
+      placeholder="Search our help center" 
+      name="query"
+    />
+    <button>&#128269;</button>
+  </form>  
+
+  <div class="categoryPage__categories wrapper"> 
+    <% data.fields.sub_categories.forEach(subCategory => { %>
+    <div>
+      <h2><%= subCategory.name %></h2>
+      <div class="categoryPage__categoriesArticles">
+        <% subCategory.articles.forEach(article => {  %>
+        <a href="blog/<%= article.slug  %>"><%= article.name %></a>
+        <% }) %>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>

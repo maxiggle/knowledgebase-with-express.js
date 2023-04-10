@@ -1,0 +1,28 @@
+<div class="searchPage">
+  <div class="searchPage__hero">
+    <div class="wrapper">
+      <h1>Search</h1>
+      <form class="search" action="/search/" method="get">
+        <input 
+          placeholder="Search our help center" 
+          name="query"
+        />
+        <button>&#128269;</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="searchPage__articles wrapper">
+    <div>
+      <h3>Results for: <%= searchValue %></h3>
+    </div>
+    <div class="searchPage__articlesList">
+      <% results.forEach(article => {  %>
+      <div>
+        <a href="/blog/<%= article.slug %>"><%= article.name %></a>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+

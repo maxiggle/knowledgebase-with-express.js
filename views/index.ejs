@@ -1,0 +1,31 @@
+<div class="hero">
+  <div>
+    <h1>Dropbox help center</h1>
+  </div>
+  <div>
+    <p>Learn how to use Dropbox and find answers to common questions</p>
+  </div>
+</div>
+
+<form class="search" action="/search" method="get">
+  <input 
+    placeholder="Search articles (ex. reset passwords, changing billing info, etc.)" 
+    name="query"
+  />
+  <button>&#128269;</button>
+</form>
+
+<div class="categories wrapper">
+  <% data.forEach(mainCategory => { %>
+  <div class="category">
+    <img src="<%= mainCategory.image_link %>" alt="category"/>
+    <h3><%= mainCategory.name %></h3>
+    <hr />
+    <ul class="category__subCategory">
+      <% mainCategory.categories.forEach(category => { %>
+      <li> <a href="<%= category.slug %>"><%= category.name %></a> </li>
+      <% }) %>
+    </ul>
+  </div>
+  <% }) %>
+</div>
